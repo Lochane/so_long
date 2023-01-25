@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:13:35 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 10:49:39 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:55:00 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	go_up(t_data *data)
 {
+	if (data->map.map_file [data->map.spawn_y - 1][data->map.spawn_x] == 'E')
+	{
+		if (data->map.count_collectable == 0)
+			win_screen(data);
+	}
 	if (data->map.map_file[data->map.spawn_y - 1][data->map.spawn_x] != '1')
 	{
 		if (data->map.map_file[data->map.spawn_y - 1][data->map.spawn_x] == 'C')
@@ -23,15 +28,19 @@ void	go_up(t_data *data)
 			data->sprites.floor.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y--) * 32));
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->sprites.character.img, (data->map.spawn_x * 32),
+			data->sprites.character_up.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y) * 32));
-		// printf("%d", data->map.count_collectable);
 
 	}
 }
 
 void	go_left(t_data *data)
 {
+	if (data->map.map_file [data->map.spawn_y][data->map.spawn_x - 1] == 'E')
+	{
+		if (data->map.count_collectable == 0)
+			win_screen(data);
+	}
 	if (data->map.map_file[data->map.spawn_y][data->map.spawn_x - 1] != '1')
 	{
 		if (data->map.map_file[data->map.spawn_y][data->map.spawn_x - 1] == 'C')
@@ -41,14 +50,18 @@ void	go_left(t_data *data)
 			data->sprites.floor.img, ((data->map.spawn_x--) * 32),
 			((data->map.spawn_y) * 32));
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->sprites.character.img, (data->map.spawn_x * 32),
+			data->sprites.character_left.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y) * 32));
-		// printf("%d", data->map.count_collectable);
 	}
 }
 
 void	go_down(t_data *data)
 {
+	if (data->map.map_file [data->map.spawn_y + 1][data->map.spawn_x] == 'E')
+	{
+		if (data->map.count_collectable == 0)
+			win_screen(data);
+	}
 	if (data->map.map_file[data->map.spawn_y + 1][data->map.spawn_x] != '1')
 	{
 		if (data->map.map_file[data->map.spawn_y + 1][data->map.spawn_x] == 'C')
@@ -58,14 +71,18 @@ void	go_down(t_data *data)
 			data->sprites.floor.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y++) * 32));
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->sprites.character.img, (data->map.spawn_x * 32),
+			data->sprites.character_down.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y) * 32));
-		// printf("%d", data->map.count_collectable);
 	}
 }
 
 void	go_right(t_data *data)
 {
+	if (data->map.map_file [data->map.spawn_y][data->map.spawn_x + 1] == 'E')
+	{
+		if (data->map.count_collectable == 0)
+			win_screen(data);
+	}
 	if (data->map.map_file[data->map.spawn_y][data->map.spawn_x + 1] != '1')
 	{
 		if (data->map.map_file[data->map.spawn_y][data->map.spawn_x + 1] == 'C')
@@ -75,14 +92,7 @@ void	go_right(t_data *data)
 			data->sprites.floor.img, ((data->map.spawn_x++) * 32),
 			((data->map.spawn_y) * 32));
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->sprites.character.img, (data->map.spawn_x * 32),
+			data->sprites.character_right.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y) * 32));
-		printf("%d", data->map.count_collectable);
-		// if (data->map.count_collectable == 0)
-		// {
-		// 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-		// 		data->sprites.exit.img, (data->map.exit_x * 32),
-		// 		(data->map.exit_y * 32));
-		// }
 	}
 }

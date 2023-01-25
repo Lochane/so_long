@@ -6,7 +6,7 @@
 #    By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:43:49 by lsouquie          #+#    #+#              #
-#    Updated: 2023/01/25 10:47:48 by lsouquie         ###   ########.fr        #
+#    Updated: 2023/01/25 13:00:10 by lsouquie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRC = main_map \
 		so_long \
 		rendering \
 		events \
-		gameplay \
 		move \
 
 OBJ = $(addsuffix .o, ${SRC})

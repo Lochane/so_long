@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:46:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 10:58:06 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:48:10 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,8 @@ void	so_long(t_data *data)
 		exit(EXIT_FAILURE);
 	}
 	rendering(data);
-	if (data->map.count_collectable == 0)
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->sprites.exit.img, (data->map.exit_x * 32),
-			(data->map.exit_y * 32));
-	}
-	mlx_loop_hook(data->win_ptr, &gameplay, data);
-	// mlx_hook(data->win_ptr, 17, 1L << 17, &cross_manage, data);
-	// mlx_key_hook(data->win_ptr, &keybinding, data);
-	// mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
+	mlx_hook(data->win_ptr, 17, 1L << 17, &quit_game, data);
+	mlx_key_hook(data->win_ptr, &keybinding, data);
+	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
 	mlx_loop(data->mlx_ptr);
 }
