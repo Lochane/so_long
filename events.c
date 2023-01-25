@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:21:38 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 14:56:34 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:10:42 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	check_fin(t_data *data)
 
 int	quit_game(t_data *data)
 {
+	mlx_destroy_image(data->mlx_ptr, data->sprites.end_screen.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.character_up.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.character_down.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.character_right.img);
@@ -55,6 +56,8 @@ int	quit_game(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->sprites.exit.img);
 	if (data->win_ptr)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	if (data->win_ptr2)
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr2);
 	if (data->mlx_ptr)
 		mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
@@ -64,14 +67,10 @@ int	quit_game(t_data *data)
 
 void	win_screen(t_data *data)
 {
-	mlx_loop_end(data->mlx_ptr);
-	free(data->mlx_ptr);
-	data->mlx_ptr = mlx_init();
 	data->win_ptr2 = mlx_new_window(data->mlx_ptr, 1900, 729, "GG");
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr2,
 		data->sprites.end_screen.img, 0, 0);
-	mlx_hook(data->win_ptr, 17, 1L << 17, &quit_game, data);
-	mlx_key_hook(data->win_ptr, &keybinding, data);
-	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
-	mlx_loop(data->mlx_ptr);
+	mlx_hook(data->win_ptr2, 17, 1L << 17, &quit_game, data);
+	mlx_key_hook(data->win_ptr2, &keybinding, data);
+	mlx_hook(data->win_ptr2, KeyPress, KeyPressMask, &handle_keypress, data);
 }

@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 14:52:05 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:20:15 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_map
 	int		spawn_y;
 	int		exit_x;
 	int		exit_y;
+	
 }			t_map;
 
 typedef struct s_data {
@@ -89,6 +90,7 @@ void	error_char(t_data *data);
 int		count(const char *a);
 char	**copy_tab(char **dest, char **src, t_data *data);
 void	*free_tab(char **res, size_t i, t_data *data, int allowfree);
+void	initialise_struct(t_data *data);
 
 /* Algo Map */
 void	check_accessibility(t_data *data);

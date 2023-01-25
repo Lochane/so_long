@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:43:57 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/24 19:44:18 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:29:09 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_accessibility(t_data *data)
 	j = 0;
 	data->map.collectable_founded = 0;
 	data->map.exit_founded = 0;
-	tab = malloc(sizeof (char *) * data->map.map_height + 1);
+	tab = malloc(sizeof(char *) * (data->map.map_height + 1));
 	if (!tab)
 		exit (0);
 	tab = copy_tab(tab, data->map.map_file, data);
