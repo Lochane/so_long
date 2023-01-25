@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:05:59 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 15:22:53 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:53:58 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ void	validate_map(int argc, char *mapfile, t_data *data)
 
 void	parsing_map(char *mapfile, t_data *data)
 {
-	data->map.count_collectable = 0;
-	data->map.count_exit = 0;
-	data->map.count_spawn = 0;
 	map_to_tab(mapfile, data);
 	check_mapsize(data);
 	check_mapintegrity(data);

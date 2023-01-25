@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 15:20:15 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:37:13 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ typedef struct s_map
 	int		spawn_y;
 	int		exit_x;
 	int		exit_y;
-	
 }			t_map;
 
 typedef struct s_data {
 	void		*mlx_ptr;
 	void		*win_ptr;
 	void		*win_ptr2;
+	int			move;
 	t_sprite	sprites;
 	t_map		map;
 }			t_data;
@@ -88,7 +88,7 @@ void	error_char(t_data *data);
 
 /* Map utils 2*/
 int		count(const char *a);
-char	**copy_tab(char **dest, char **src, t_data *data);
+void	copy_tab(char **dest, char **src, t_data *data);
 void	*free_tab(char **res, size_t i, t_data *data, int allowfree);
 void	initialise_struct(t_data *data);
 
@@ -111,6 +111,8 @@ void	go_up(t_data *data);
 void	go_down(t_data *data);
 void	go_right(t_data *data);
 void	go_left(t_data *data);
+void	print_move(t_data *data);
+
 
 /* events*/
 

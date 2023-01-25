@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:43:57 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 15:29:09 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:59:58 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_accessibility(t_data *data)
 	tab = malloc(sizeof(char *) * (data->map.map_height + 1));
 	if (!tab)
 		exit (0);
-	tab = copy_tab(tab, data->map.map_file, data);
+	copy_tab(tab, data->map.map_file, data);
 	found_spawn(tab, data);
 	found_path(data, tab, data->map.spawn_x, data->map.spawn_y);
 	if ((data->map.collectable_founded != data->map.count_collectable)
@@ -62,7 +62,7 @@ int	found_spawn(char **tab, t_data *data)
 
 	i = 0;
 	j = 0;
-	while (tab[i])
+	while (i < data->map.map_height)
 	{
 		j = 0;
 		while (tab[i][j] && tab[i][j] != 'P' && tab[i][j] != 'E')

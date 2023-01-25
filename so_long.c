@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:46:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 15:20:23 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:37:00 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	so_long(t_data *data)
 		exit(EXIT_FAILURE);
 	}
 	rendering(data);
+
 	mlx_hook(data->win_ptr, 17, 1L << 17, &quit_game, data);
 	mlx_key_hook(data->win_ptr, &keybinding, data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);

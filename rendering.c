@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:19:20 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 13:05:09 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:38:11 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	rendering(t_data *data)
 	load_img2(data);
 	render_map(data);
 	render_object(data);
+	print_move(data);
 }
 
 void	render_map(t_data *data)
