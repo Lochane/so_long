@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/24 19:42:12 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/25 10:58:09 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "./Minilibx/mlx.h"
-# include "./Libft/libft.h"
+# include "./libft/libft.h"
 
 # define WINDOW_WIDTH 1920
 # define WINDOW_HEIGHT 1080
@@ -110,10 +110,10 @@ void	go_left(t_data *data);
 
 /* events*/
 
-int		keybinding(int keysim,t_data *data);
+int		keybinding(int keysim, t_data *data);
 int		escape_manage(int keysim, t_data *data);
 int		cross_manage(t_data *data);
+int		handle_keypress(int keysym, t_data *data);
 
-int	handle_keypress(int keysym, t_data *data);
 
 #endif

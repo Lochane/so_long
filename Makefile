@@ -6,7 +6,7 @@
 #    By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:43:49 by lsouquie          #+#    #+#              #
-#    Updated: 2023/01/24 19:29:45 by lsouquie         ###   ########.fr        #
+#    Updated: 2023/01/25 10:47:48 by lsouquie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ CC = cc
 FLAGS = -Wall -Werror -Wextra -g3
 HEADER = .
 PATH_MLX1 = Minilibx
-PATH_LIBFT1 = Libft/
+PATH_LIBFT1 = libft/
 PATH_MLX = ./Minilibx/libmlx.a
-PATH_LIBFT = ./Libft/libft.a
+PATH_LIBFT = ./libft/libft.a
 
 all: $(NAME)
 
