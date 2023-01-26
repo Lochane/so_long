@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:10:42 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/20 16:02:26 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:20:20 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	error_char(t_data *data)
 {
 	if (data->map.count_collectable == 0)
-		error_msg("Error: Too few collectable\n", 1, data);
+		error_msg("Error:\nToo few collectable\n", 1, data);
 	if (data->map.count_exit > 1)
-		error_msg("Error: Too many exit\n", 1, data);
+		error_msg("Error:\nToo many exit\n", 1, data);
 	if (data->map.count_exit < 1)
-		error_msg("Error: No exit\n", 1, data);
+		error_msg("Error:\nNo exit\n", 1, data);
 	if (data->map.count_spawn > 1)
-		error_msg("Error: Too many spawn\n", 1, data);
+		error_msg("Error:\nToo many spawn\n", 1, data);
 	if (data->map.count_spawn < 1)
-		error_msg("Error: No spawn\n", 1, data);
+		error_msg("Error:\nNo spawn\n", 1, data);
 }
 
 int	count_line(char *mapfile, t_data *data)
@@ -39,7 +39,7 @@ int	count_line(char *mapfile, t_data *data)
 	{
 		free(line);
 		close(fd);
-		error_msg("Error: line is invalide\n", 1, data);
+		error_msg("Error:\nline is invalide\n", 1, data);
 	}
 	while (line)
 	{
@@ -55,7 +55,7 @@ int	count_line(char *mapfile, t_data *data)
 void	validate_chars(t_data *data, char c)
 {	
 	if (c != 'C' && c != 'E' && c != 'P')
-		error_msg("Error: Character invalid\n", 1, data);
+		error_msg("Error:\nCharacter invalid\n", 1, data);
 	if (c == 'C')
 		data->map.count_collectable += 1;
 	if (c == 'E')
@@ -70,4 +70,21 @@ void	error_msg(char *msg, int tofree, t_data *data)
 		free_tab(data->map.map_file, data->map.map_height, data, 1);
 	write(2, msg, ft_strlen(msg));
 	exit (0);
+}
+
+void	initialise_struct(t_data *data)
+{
+	data->map.collectable_founded = 0;
+	data->map.count_collectable = 0;
+	data->map.count_exit = 0;
+	data->map.count_spawn = 0;
+	data->map.exit_founded = 0;
+	data->map.exit_x = 0;
+	data->map.exit_y = 0;
+	data->map.map_height = 0;
+	data->map.map_widht = 0;
+	data->map.spawn_x = 0;
+	data->map.spawn_y = 0;
+	data->win_ptr2 = 0;
+	data->move = 0;
 }

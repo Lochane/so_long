@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:19:20 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 18:38:11 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:44:33 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	load_img(t_data *data)
 		(data->mlx_ptr, "./Sprites/exit.xpm", &data->sprites.exit.width,
 			&data->sprites.exit.height);
 	data->sprites.end_screen.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/endscreen.xpm",
+		(data->mlx_ptr, "Sprites/endscreen.xpm",
 			&data->sprites.end_screen.width,
 			&data->sprites.end_screen.height);
 }

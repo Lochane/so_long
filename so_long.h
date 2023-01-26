@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 18:37:13 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:04:29 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # include <X11/keysym.h>
 # include "./Minilibx/mlx.h"
 # include "./libft/libft.h"
+
+typedef enum e_bool
+{
+	TRUE = 1,
+	FALSE = 0
+}	t_bool;
 
 typedef struct s_img
 {
@@ -85,17 +91,20 @@ void	validate_chars(t_data *data, char c);
 int		count_line(char *mapfile, t_data *data);
 void	error_msg(char *msg, int tofree, t_data *data);
 void	error_char(t_data *data);
+void	initialise_struct(t_data *data);
 
 /* Map utils 2*/
 int		count(const char *a);
 void	copy_tab(char **dest, char **src, t_data *data);
 void	*free_tab(char **res, size_t i, t_data *data, int allowfree);
-void	initialise_struct(t_data *data);
+int		found_exit(char **tab, t_data *data);
+int		found_spawn(char **tab, t_data *data);
 
 /* Algo Map */
 void	check_accessibility(t_data *data);
-int		found_spawn(char **tab, t_data *data);
-void	found_path(t_data *data, char **tab, int i, int j);
+char	found_path(t_data *data, char **tab);
+char	fill_path(t_data *data, char **tab, int i, int j);
+char	overflow(t_data *data, char **tab, int i, int j);
 
 /* Rendering */
 
@@ -113,7 +122,6 @@ void	go_right(t_data *data);
 void	go_left(t_data *data);
 void	print_move(t_data *data);
 
-
 /* events*/
 
 int		keybinding(int keysim, t_data *data);
@@ -121,6 +129,5 @@ int		handle_keypress(int keysym, t_data *data);
 void	check_fin(t_data *data);
 int		quit_game(t_data *data);
 void	win_screen(t_data *data);
-
 
 #endif

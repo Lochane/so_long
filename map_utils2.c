@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:11:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 18:23:43 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:02:54 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,48 @@ void	*free_tab(char **res, size_t i, t_data *data, int allowfree)
 	return (NULL);
 }
 
-void	initialise_struct(t_data *data)
+int	found_spawn(char **tab, t_data *data)
 {
-	data->map.collectable_founded = 0;
-	data->map.count_collectable = 0;
-	data->map.count_exit = 0;
-	data->map.count_spawn = 0;
-	data->map.exit_founded = 0;
-	data->map.exit_x = 0;
-	data->map.exit_y = 0;
-	data->map.map_height = 0;
-	data->map.map_widht = 0;
-	data->map.spawn_x = 0;
-	data->map.spawn_y = 0;
-	data->win_ptr2 = 0;
-	data->move = 0;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < data->map.map_height)
+	{
+		j = 0;
+		while (tab[i][j] && tab[i][j] != 'P')
+			j++;
+		if (tab[i][j] == 'P')
+		{
+			data->map.spawn_x = j;
+			data->map.spawn_y = i;
+			break ;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	found_exit(char **tab, t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < data->map.map_height)
+	{
+		j = 0;
+		while (tab[i][j] && tab[i][j] != 'E')
+			j++;
+		if (tab[i][j] == 'E')
+		{
+			data->map.exit_x = j;
+			data->map.exit_y = i;
+			break ;
+		}
+		i++;
+	}
+	return (0);
 }

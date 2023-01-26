@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:05:59 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 15:53:58 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:21:27 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ void	validate_map(int argc, char *mapfile, t_data *data)
 	int	fd;
 
 	if (argc > 2)
-		error_msg("Error: Too many arguments", 0, data);
+		error_msg("Error:\nToo many arguments", 0, data);
 	if (ft_strncmp(".ber", &mapfile[ft_strlen(mapfile) - 4],
 			ft_strlen(mapfile)) != 0)
-		error_msg("Error: file is not .ber\n", 0, data);
+		error_msg("Error:\nfile is not .ber\n", 0, data);
 	fd = open(mapfile, __O_DIRECTORY);
 	if (fd > 0)
 	{
 		close (fd);
-		error_msg("Error: fd superieur a 0\n", 0, data);
+		error_msg("Error:\nfd superieur a 0\n", 0, data);
 	}
 	fd = open(mapfile, O_RDONLY);
 	if (fd < 0)
 	{
 		printf("%d\n", fd);
 		close(fd);
-		error_msg("Error: fd inferieur a 0\n", 0, data);
+		error_msg("Error:\nfd inferieur a 0\n", 0, data);
 	}
 	close (fd);
 }
@@ -53,7 +53,7 @@ void	check_mapsize(t_data *data)
 	while (i < data->map.map_height)
 	{
 		if ((int)count(data->map.map_file[i]) != data->map.map_widht)
-			error_msg("Error: line is not the same size\n", 1, data);
+			error_msg("Error:\nline is not the same size\n", 1, data);
 		i++;
 	}
 }
@@ -74,7 +74,7 @@ void	check_mapintegrity(t_data *data)
 				|| j == data->map.map_widht - 1)
 			{
 				if (data->map.map_file[i][j] != '1')
-					error_msg("Error: Map not surrounded by walls\n", 1, data);
+					error_msg("Error:\nMap not surrounded by walls\n", 1, data);
 			}
 			else if (data->map.map_file[i][j] != '1'
 						&& data->map.map_file[i][j] != '0')

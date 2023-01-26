@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:21:38 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/25 15:10:42 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:22:13 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	keybinding(int keysim, t_data *data)
 		go_right(data);
 	if (keysim == 'a' || keysim == 65361)
 		go_left(data);
+	print_move(data);
 	check_fin(data);
 	return (0);
 }
