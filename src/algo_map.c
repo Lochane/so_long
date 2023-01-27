@@ -6,11 +6,11 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:43:57 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/26 18:19:01 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/27 18:45:44 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "include/so_long.h"
 
 void	check_accessibility(t_data *data)
 {
@@ -26,7 +26,7 @@ void	check_accessibility(t_data *data)
 	copy_tab(tab, data->map.map_file, data);
 	found_spawn(tab, data);
 	found_exit(tab, data);
-	while (bool == TRUE)
+	while (bool)
 		bool = found_path(data, tab);
 	if ((data->map.collectable_founded != data->map.count_collectable)
 		|| (data->map.exit_founded != 1))
@@ -50,7 +50,7 @@ char	found_path(t_data *data, char **tab)
 		while (j < data->map.map_widht)
 		{
 			if (tab[i][j] == 'P' || tab[i][j] == '2' || tab[i][j] == '0')
-				bool = fill_path(data, tab, i, j);
+				bool += fill_path(data, tab, i, j);
 			j++;
 		}
 		i++;
@@ -63,12 +63,11 @@ char	fill_path(t_data *data, char **tab, int i, int j)
 	char	a;
 
 	a = 0;
-	a = overflow(data, tab, i + 1, j);
-	a = overflow(data, tab, i - 1, j);
-	a = overflow(data, tab, i, j + 1);
-	a = overflow(data, tab, i, j - 1);
+	a += overflow(data, tab, i + 1, j);
+	a += overflow(data, tab, i - 1, j);
+	a += overflow(data, tab, i, j + 1);
+	a += overflow(data, tab, i, j - 1);
 	return (a);
-
 }
 
 char	overflow(t_data *data, char **tab, int i, int j)
@@ -84,5 +83,3 @@ char	overflow(t_data *data, char **tab, int i, int j)
 	}
 	return (0);
 }
-
-

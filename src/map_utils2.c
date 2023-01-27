@@ -6,11 +6,11 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 19:11:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/26 18:02:54 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/27 18:46:10 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "include/so_long.h"
 
 int	count(const char *a)
 {

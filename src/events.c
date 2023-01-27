@@ -6,11 +6,11 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:21:38 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/26 18:22:13 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/27 18:46:01 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "include/so_long.h"
 
 int	handle_keypress(int keysym, t_data *data)
 {

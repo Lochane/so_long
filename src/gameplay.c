@@ -6,11 +6,11 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:13:35 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/26 18:17:59 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/27 18:46:04 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "include/so_long.h"
 
 void	print_move(t_data *data)
 {
