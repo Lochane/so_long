@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/26 18:04:29 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:40:17 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@
 # include <X11/keysym.h>
 # include "./Minilibx/mlx.h"
 # include "./libft/libft.h"
-
-typedef enum e_bool
-{
-	TRUE = 1,
-	FALSE = 0
-}	t_bool;
 
 typedef struct s_img
 {
@@ -129,5 +123,7 @@ int		handle_keypress(int keysym, t_data *data);
 void	check_fin(t_data *data);
 int		quit_game(t_data *data);
 void	win_screen(t_data *data);
+
+void	print(char **tab);
 
 #endif

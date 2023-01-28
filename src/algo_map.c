@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:43:57 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/27 18:45:44 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:47:44 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char	found_path(t_data *data, char **tab)
 	i = 0;
 	j = 0;
 	bool = 0;
+	print(tab);
 	while (i < data->map.map_height)
 	{
 		j = 0;
@@ -50,7 +51,10 @@ char	found_path(t_data *data, char **tab)
 		while (j < data->map.map_widht)
 		{
 			if (tab[i][j] == 'P' || tab[i][j] == '2' || tab[i][j] == '0')
+			{
 				bool += fill_path(data, tab, i, j);
+				print(tab);
+			}
 			j++;
 		}
 		i++;
@@ -82,4 +86,16 @@ char	overflow(t_data *data, char **tab, int i, int j)
 		return (1);
 	}
 	return (0);
+}
+
+void	print(char **tab)
+{
+	int i = 0;
+
+	while(tab[i])
+	{
+		printf("%s", tab[i]);
+		i++;
+	}
+	printf("\n\n");
 }

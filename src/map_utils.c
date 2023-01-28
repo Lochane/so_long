@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:10:42 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/27 18:46:08 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:31:01 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	error_msg(char *msg, int tofree, t_data *data)
 {
 	if (tofree == 1)
 		free_tab(data->map.map_file, data->map.map_height, data, 1);
+	else if (tofree == 2)
+		free(data);
 	write(2, msg, ft_strlen(msg));
 	exit (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:05:59 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/27 18:46:11 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:28:41 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ void	validate_map(int argc, char *mapfile, t_data *data)
 	int	fd;
 
 	if (argc > 2)
-		error_msg("Error:\nToo many arguments", 0, data);
+		error_msg("Error:\nToo many arguments", 2, data);
 	if (ft_strncmp(".ber", &mapfile[ft_strlen(mapfile) - 4],
 			ft_strlen(mapfile)) != 0)
-		error_msg("Error:\nfile is not .ber\n", 0, data);
+		error_msg("Error:\nfile is not .ber\n", 2, data);
 	fd = open(mapfile, __O_DIRECTORY);
 	if (fd > 0)
 	{
 		close (fd);
-		error_msg("Error:\nfd superieur a 0\n", 0, data);
+		error_msg("Error:\nfd superieur a 0\n", 2, data);
 	}
 	fd = open(mapfile, O_RDONLY);
 	if (fd < 0)
 	{
 		printf("%d\n", fd);
 		close(fd);
-		error_msg("Error:\nfd inferieur a 0\n", 0, data);
+		error_msg("Error:\nfd inferieur a 0\n", 2, data);
 	}
 	close (fd);
 }
