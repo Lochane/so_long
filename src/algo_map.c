@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:43:57 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/28 17:47:44 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:52:11 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	found_path(t_data *data, char **tab)
 		bool = 0;
 		while (j < data->map.map_widht)
 		{
-			if (tab[i][j] == 'P' || tab[i][j] == '2' || tab[i][j] == '0')
+			if (tab[i][j] == 'P' || tab[i][j] == '2')
 			{
 				bool += fill_path(data, tab, i, j);
 				print(tab);
