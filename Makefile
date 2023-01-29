@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+         #
+#    By: lochane <lochane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:43:49 by lsouquie          #+#    #+#              #
-#    Updated: 2023/01/28 17:36:37 by lsouquie         ###   ########.fr        #
+#    Updated: 2023/01/28 23:51:17 by lochane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,10 @@ all: $(NAME)
 		${CC} ${FLAGS} -c $< -o $@ -I${HEADER}
 
 $(NAME): ${OBJ}
-			@echo "			-> Compiling $(NAME)"
+#			@echo "			-> Compiling $(NAME)"
 			@make -C ./libft
 			${CC} ${OBJ} ${PATH_MLX} ${PATH_LIBFT} -o ${NAME} -L ./mlx -lX11 -lXext
-			@echo "			-> Compiled"
+#			@echo "			-> Compiled"
 
 clean:
 		rm -f ${OBJ}

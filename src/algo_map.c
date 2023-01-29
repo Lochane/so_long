@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:43:57 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/28 17:52:11 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/28 23:52:43 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,15 @@ char	found_path(t_data *data, char **tab)
 	j = 0;
 	bool = 0;
 	print(tab);
-	while (i < data->map.map_height)
+	while (tab[i])
 	{
 		j = 0;
-		bool = 0;
-		while (j < data->map.map_widht)
+		while (tab[i][j])
 		{
 			if (tab[i][j] == 'P' || tab[i][j] == '2')
 			{
 				bool += fill_path(data, tab, i, j);
-				print(tab);
+				//print(tab)
 			}
 			j++;
 		}
@@ -88,7 +87,7 @@ char	overflow(t_data *data, char **tab, int i, int j)
 	return (0);
 }
 
-void	print(char **tab)
+void	ft_print_double_tab(char **tab)
 {
 	int i = 0;
 

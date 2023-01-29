@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/28 17:40:17 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/01/28 23:53:08 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,56 +20,7 @@
 # include <X11/keysym.h>
 # include "./Minilibx/mlx.h"
 # include "./libft/libft.h"
-
-typedef struct s_img
-{
-	void	*img;
-	void	*addr;
-	int		bpp;
-	int		linelenght;
-	int		width;
-	int		height;
-	int		endian;
-	char	*path;
-}			t_img;
-
-typedef struct s_sprite
-{
-	t_img	floor;
-	t_img	wall;
-	t_img	collectable;
-	t_img	character_up;
-	t_img	character_down;
-	t_img	character_right;
-	t_img	character_left;
-	t_img	end_screen;
-	t_img	exit;
-}			t_sprite;
-
-typedef struct s_map
-{
-	char	**map_file;
-	int		map_height;
-	int		map_widht;
-	int		count_exit;
-	int		count_collectable;
-	int		count_spawn;
-	int		exit_founded;
-	int		collectable_founded;
-	int		spawn_x;
-	int		spawn_y;
-	int		exit_x;
-	int		exit_y;
-}			t_map;
-
-typedef struct s_data {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*win_ptr2;
-	int			move;
-	t_sprite	sprites;
-	t_map		map;
-}			t_data;
+# include "struct.h"
 
 void	so_long(t_data *data);
 
@@ -124,6 +75,6 @@ void	check_fin(t_data *data);
 int		quit_game(t_data *data);
 void	win_screen(t_data *data);
 
-void	print(char **tab);
+void	ft_print_double_tab(char **tab);
 
 #endif
