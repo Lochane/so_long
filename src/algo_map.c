@@ -6,7 +6,7 @@
 /*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:43:57 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/28 23:52:43 by lochane          ###   ########.fr       */
+/*   Updated: 2023/02/07 18:04:34 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,14 @@ char	found_path(t_data *data, char **tab)
 	i = 0;
 	j = 0;
 	bool = 0;
-	print(tab);
-	while (tab[i])
+	while (i < data->map.map_height)
 	{
 		j = 0;
-		while (tab[i][j])
+		while (j < data->map.map_widht)
 		{
 			if (tab[i][j] == 'P' || tab[i][j] == '2')
 			{
 				bool += fill_path(data, tab, i, j);
-				//print(tab)
 			}
 			j++;
 		}

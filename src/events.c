@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:21:38 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/28 17:12:28 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:48:01 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	keybinding(int keysim, t_data *data)
 	if (keysim == 'a' || keysim == 65361)
 		go_left(data);
 	print_move(data);
+	printf("%d\n", data->map.count_collectable);
 	check_fin(data);
 	return (0);
 }
