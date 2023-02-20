@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:10:42 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/02/03 08:52:38 by lochane          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:20:24 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,5 @@ void	initialise_struct(t_data *data)
 	data->map.spawn_y = 0;
 	data->win_ptr2 = 0;
 	data->move = 0;
+	data->stop = 1;
 }

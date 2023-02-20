@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:05:59 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/28 17:28:41 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:11:01 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	validate_map(int argc, char *mapfile, t_data *data)
 	fd = open(mapfile, O_RDONLY);
 	if (fd < 0)
 	{
-		printf("%d\n", fd);
 		close(fd);
 		error_msg("Error:\nfd inferieur a 0\n", 2, data);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:21:38 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/02/07 17:48:01 by lochane          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:21:50 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,18 @@ int	handle_keypress(int keysym, t_data *data)
 
 int	keybinding(int keysim, t_data *data)
 {
-	if (keysim == 'w' || keysim == 65362)
-		go_up(data);
-	if (keysim == 's' || keysim == 65364)
-		go_down(data);
-	if (keysim == 'd' || keysim == 65363)
-		go_right(data);
-	if (keysim == 'a' || keysim == 65361)
-		go_left(data);
-	print_move(data);
-	printf("%d\n", data->map.count_collectable);
-	check_fin(data);
+	if (data->stop == 1)
+	{
+		if (keysim == 'w' || keysim == 65362)
+			go_up(data);
+		if (keysim == 's' || keysim == 65364)
+			go_down(data);
+		if (keysim == 'd' || keysim == 65363)
+			go_right(data);
+		if (keysim == 'a' || keysim == 65361)
+			go_left(data);
+		check_fin(data);
+	}
 	return (0);
 }
 
@@ -69,6 +70,7 @@ int	quit_game(t_data *data)
 
 void	win_screen(t_data *data)
 {
+	data->stop = 0;
 	data->win_ptr2 = mlx_new_window(data->mlx_ptr, 1900, 729, "GG");
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr2,
 		data->sprites.end_screen.img, 0, 0);

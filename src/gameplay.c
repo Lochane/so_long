@@ -3,35 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   gameplay.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:13:35 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/02/07 18:01:01 by lochane          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:28:11 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/so_long.h"
 
-void	print_move(t_data *data)
-{
-	char	*str;
-
-	str = ft_itoa(data->move);
-	if (data->move >= 0)
-		mlx_string_put(data->mlx_ptr, data->win_ptr, data->map.map_height / 5,
-			data->map.map_widht / 1.5, -1, str);
-	else
-		mlx_string_put(data->mlx_ptr, data->win_ptr, data->map.map_height / 5,
-			data->map.map_widht / 1.5, 15921152, str);
-	free(str);
-}
-
 void	go_up(t_data *data)
 {
-	if (data->map.map_file [data->map.spawn_y - 1][data->map.spawn_x] == 'E' && data->map.count_collectable == 0)
-	{
+	if (data->map.map_file [data->map.spawn_y - 1][data->map.spawn_x] == 'E'
+		&& data->map.count_collectable == 0)
 		win_screen(data);
-	}
 	if (data->map.map_file[data->map.spawn_y - 1][data->map.spawn_x] != '1')
 	{
 		if (data->map.map_file[data->map.spawn_y - 1][data->map.spawn_x] == 'C')
@@ -52,7 +37,8 @@ void	go_up(t_data *data)
 
 void	go_left(t_data *data)
 {
-	if (data->map.map_file [data->map.spawn_y][data->map.spawn_x - 1] == 'E' && data->map.count_collectable == 0)
+	if (data->map.map_file [data->map.spawn_y][data->map.spawn_x - 1] == 'E' &&
+		data->map.count_collectable == 0)
 		win_screen(data);
 	if (data->map.map_file[data->map.spawn_y][data->map.spawn_x - 1] != '1')
 	{
@@ -74,7 +60,8 @@ void	go_left(t_data *data)
 
 void	go_down(t_data *data)
 {
-	if (data->map.map_file [data->map.spawn_y + 1][data->map.spawn_x] == 'E' && data->map.count_collectable == 0)
+	if (data->map.map_file [data->map.spawn_y + 1][data->map.spawn_x] == 'E'
+		&& data->map.count_collectable == 0)
 	{
 		win_screen(data);
 	}
@@ -98,7 +85,8 @@ void	go_down(t_data *data)
 
 void	go_right(t_data *data)
 {
-	if (data->map.map_file [data->map.spawn_y][data->map.spawn_x + 1] == 'E' && data->map.count_collectable == 0)
+	if (data->map.map_file [data->map.spawn_y][data->map.spawn_x + 1] == 'E'
+		&& data->map.count_collectable == 0)
 		win_screen(data);
 	if (data->map.map_file[data->map.spawn_y][data->map.spawn_x + 1] != '1')
 	{

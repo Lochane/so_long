@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/01/28 23:53:08 by lochane          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:15:42 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	go_up(t_data *data);
 void	go_down(t_data *data);
 void	go_right(t_data *data);
 void	go_left(t_data *data);
-void	print_move(t_data *data);
 
 /* events*/
 
@@ -74,7 +73,5 @@ int		handle_keypress(int keysym, t_data *data);
 void	check_fin(t_data *data);
 int		quit_game(t_data *data);
 void	win_screen(t_data *data);
-
-void	ft_print_double_tab(char **tab);
 
 #endif

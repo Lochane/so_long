@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:43:57 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/02/07 18:04:34 by lochane          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:11:17 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,4 @@ char	overflow(t_data *data, char **tab, int i, int j)
 		return (1);
 	}
 	return (0);
-}
-
-void	ft_print_double_tab(char **tab)
-{
-	int i = 0;
-
-	while(tab[i])
-	{
-		printf("%s", tab[i]);
-		i++;
-	}
-	printf("\n\n");
 }

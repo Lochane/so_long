@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 23:36:35 by lochane           #+#    #+#             */
-/*   Updated: 2023/01/28 23:43:19 by lochane          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:17:45 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_data {
 	void		*win_ptr;
 	void		*win_ptr2;
 	int			move;
+	int			stop;
 	t_sprite	sprites;
 	t_map		map;
 }			t_data;
