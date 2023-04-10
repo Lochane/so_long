@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/02/20 12:15:42 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:06:27 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@
 void	so_long(t_data *data);
 
 /* Map fonction */
-void	validate_map(int argc, char *mapfile, t_data *data);
+void	validate_mapfile(int argc, char *mapfile, t_data *data);
 void	parsing_map(char *mapfile, t_data *data);
 void	check_mapsize(t_data *data);
 void	map_to_tab(char *mapfile, t_data *data);
 void	check_mapintegrity(t_data *data);
 
-/* Map utils */
+/* Utils */
 void	validate_chars(t_data *data, char c);
 int		count_line(char *mapfile, t_data *data);
 void	error_msg(char *msg, int tofree, t_data *data);
 void	error_char(t_data *data);
 void	initialise_struct(t_data *data);
 
-/* Map utils 2*/
+/* Utils 2*/
 int		count(const char *a);
 void	copy_tab(char **dest, char **src, t_data *data);
 void	*free_tab(char **res, size_t i, t_data *data, int allowfree);

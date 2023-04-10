@@ -6,13 +6,13 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:05:59 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/02/27 13:14:36 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:10:45 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/so_long.h"
 
-void	validate_map(int argc, char *mapfile, t_data *data)
+void	validate_mapfile(int argc, char *mapfile, t_data *data)
 {
 	int	fd;
 
@@ -109,7 +109,7 @@ void	map_to_tab(char *mapfile, t_data *data)
 		line = get_next_line(fd);
 		i++;
 	}
-	data->map.map_file = malloc(sizeof(char *) * (data->map.map_height + 1));
+	data->map.map_file = malloc(sizeof(char *) * (data->map.map_height + 1)); // TODO regler malloc
 	copy_tab(data->map.map_file, mapdata, data);
 	free_tab(mapdata, i, data, 0);
 }

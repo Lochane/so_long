@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:19:20 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/02/20 12:16:05 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:34:57 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	render_object(t_data *data)
 	int	y;
 
 	x = 0;
-	y = 0;
 	while (x < data->map.map_widht)
 	{
 		y = 0;
@@ -71,13 +70,13 @@ void	render_object(t_data *data)
 void	load_img(t_data *data)
 {
 	data->sprites.floor.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/floor.xpm", &data->sprites.floor.width,
+		(data->mlx_ptr, "./Sprites/grass.xpm", &data->sprites.floor.width,
 			&data->sprites.floor.height);
 	data->sprites.wall.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/walls.xpm", &data->sprites.wall.width,
+		(data->mlx_ptr, "./Sprites/tree.xpm", &data->sprites.wall.width,
 			&data->sprites.wall.height);
 	data->sprites.collectable.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/collectible.xpm",
+		(data->mlx_ptr, "./Sprites/collectable_1.xpm",
 			&data->sprites.collectable.width,
 			&data->sprites.collectable.height);
 	data->sprites.exit.img = mlx_xpm_file_to_image
