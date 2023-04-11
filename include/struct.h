@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 23:36:35 by lochane           #+#    #+#             */
-/*   Updated: 2023/02/20 12:17:45 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/11 15:29:36 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ typedef struct s_sprite
 	t_img	character_left;
 	t_img	end_screen;
 	t_img	exit;
+	t_img	tree1;
+	t_img	tree2;
+	t_img	tree3;
+	t_img	tree4;
 }			t_sprite;
 
 typedef struct s_map

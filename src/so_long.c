@@ -6,11 +6,20 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:46:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/03/30 15:03:22 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:38:12 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/so_long.h"
+
+void	ft_loop(t_data *data)
+{
+	mlx_loop_hook(data->mlx_ptr, &rendering, data);
+	mlx_hook(data->win_ptr, 33, 1L << 17, &quit_game, data);
+	mlx_key_hook(data->win_ptr, &keybinding, data);
+	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
+	mlx_loop(data->mlx_ptr);
+}	
 
 int	main(int argc, char **argv)
 {
@@ -22,13 +31,23 @@ int	main(int argc, char **argv)
 	initialise_struct(data);
 	validate_mapfile(argc, argv[1], data);
 	parsing_map(argv[1], data);
+	printf("LOL");
+
+	//load_img(data);
+	printf("LOL");
+
+	//load_img2(data);
+	printf("LOL");
 	so_long(data);
+	ft_loop(data);
 	free(data);
 	return (0);
 }
 
+
 void	so_long(t_data *data)
 {
+	
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 	{
@@ -43,9 +62,16 @@ void	so_long(t_data *data)
 		free(data->mlx_ptr);
 		exit(EXIT_FAILURE);
 	}
-	rendering(data);
-	mlx_hook(data->win_ptr, 17, 1L << 17, &quit_game, data);
-	mlx_key_hook(data->win_ptr, &keybinding, data);
-	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
-	mlx_loop(data->mlx_ptr);
+	load_img(data);
+	// /printf("LOL");
+
+	load_img2(data);
+	// printf("LOL");
+	// rendering(data);
+	// ft_loop(data);
+	// mlx_loop_hook(data->mlx_ptr, &rendering, data);
+	// mlx_hook(data->win_ptr, 33, 1L << 17, &quit_game, data);
+	// mlx_key_hook(data->win_ptr, &keybinding, data);
+	// mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
+	// mlx_loop(data->mlx_ptr);
 }

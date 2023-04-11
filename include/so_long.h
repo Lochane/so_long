@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/03/30 17:06:27 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:15:00 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	overflow(t_data *data, char **tab, int i, int j);
 
 /* Rendering */
 
-void	rendering(t_data *data);
+int	rendering(t_data *data);
 void	load_img2(t_data *data);
 void	load_img(t_data *data);
 void	render_map(t_data *data);
@@ -73,5 +73,7 @@ int		handle_keypress(int keysym, t_data *data);
 void	check_fin(t_data *data);
 int		quit_game(t_data *data);
 void	win_screen(t_data *data);
+
+int	animation(t_data *data);
 
 #endif
