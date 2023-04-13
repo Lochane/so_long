@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/11 18:15:00 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/13 13:55:35 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ char	overflow(t_data *data, char **tab, int i, int j);
 
 /* Rendering */
 
-int	rendering(t_data *data);
-void	load_img2(t_data *data);
-void	load_img(t_data *data);
-void	render_map(t_data *data);
+int		rendering(t_data *data);
+void	animation(int t, int y, int x, t_data *data);
+void	anim_tree(int i, int y, int x, t_data *data);
 void	render_object(t_data *data);
+
+
 
 /* Gameplay */
 
@@ -66,7 +67,7 @@ void	go_down(t_data *data);
 void	go_right(t_data *data);
 void	go_left(t_data *data);
 
-/* events*/
+/* Events */
 
 int		keybinding(int keysim, t_data *data);
 int		handle_keypress(int keysym, t_data *data);
@@ -74,6 +75,11 @@ void	check_fin(t_data *data);
 int		quit_game(t_data *data);
 void	win_screen(t_data *data);
 
-int	animation(t_data *data);
+/* Load */
+void	load(t_data *data);
+void	load_img(t_data *data);
+void	load_img2(t_data *data);
+void	load_img3(t_data *data);
+
 
 #endif

@@ -6,20 +6,11 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:46:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/11 18:38:12 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/13 13:43:45 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/so_long.h"
-
-void	ft_loop(t_data *data)
-{
-	mlx_loop_hook(data->mlx_ptr, &rendering, data);
-	mlx_hook(data->win_ptr, 33, 1L << 17, &quit_game, data);
-	mlx_key_hook(data->win_ptr, &keybinding, data);
-	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
-	mlx_loop(data->mlx_ptr);
-}	
+#include "include/so_long.h"	
 
 int	main(int argc, char **argv)
 {
@@ -32,14 +23,7 @@ int	main(int argc, char **argv)
 	validate_mapfile(argc, argv[1], data);
 	parsing_map(argv[1], data);
 	printf("LOL");
-
-	//load_img(data);
-	printf("LOL");
-
-	//load_img2(data);
-	printf("LOL");
 	so_long(data);
-	ft_loop(data);
 	free(data);
 	return (0);
 }
@@ -62,16 +46,11 @@ void	so_long(t_data *data)
 		free(data->mlx_ptr);
 		exit(EXIT_FAILURE);
 	}
-	load_img(data);
-	// /printf("LOL");
-
-	load_img2(data);
-	// printf("LOL");
-	// rendering(data);
-	// ft_loop(data);
-	// mlx_loop_hook(data->mlx_ptr, &rendering, data);
-	// mlx_hook(data->win_ptr, 33, 1L << 17, &quit_game, data);
-	// mlx_key_hook(data->win_ptr, &keybinding, data);
-	// mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
-	// mlx_loop(data->mlx_ptr);
+	load(data);
+	render_object(data);
+	mlx_hook(data->win_ptr, 33, 1L << 17, &quit_game, data);
+	mlx_key_hook(data->win_ptr, &keybinding, data);
+	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
+	mlx_loop_hook(data->mlx_ptr, &rendering, data);
+	mlx_loop(data->mlx_ptr);
 }

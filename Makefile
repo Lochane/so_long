@@ -6,7 +6,7 @@
 #    By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:43:49 by lsouquie          #+#    #+#              #
-#    Updated: 2023/03/30 14:56:01 by lsouquie         ###   ########.fr        #
+#    Updated: 2023/04/13 12:43:46 by lsouquie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ LIBPATH = ./libft/libft
 SRC =  $(SRCDIR)map.c $(SRCDIR)utils.c \
 		$(SRCDIR)utils2.c $(SRCDIR)algo_map.c $(SRCDIR)so_long.c \
 		$(SRCDIR)rendering.c $(SRCDIR)events.c $(SRCDIR)gameplay.c \
+		$(SRCDIR)load.c \
 
 
 OBJ = $(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRC))
