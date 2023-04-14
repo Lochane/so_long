@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 23:36:35 by lochane           #+#    #+#             */
-/*   Updated: 2023/04/11 15:29:36 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:25:39 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_sprite
 	t_img	floor;
 	t_img	wall;
 	t_img	collectable;
-	t_img	character_up;
-	t_img	character_down;
+	t_img	character1;
+	t_img	character2;
 	t_img	character_right;
 	t_img	character_left;
 	t_img	end_screen;
@@ -41,6 +41,11 @@ typedef struct s_sprite
 	t_img	tree3;
 	t_img	tree4;
 }			t_sprite;
+
+typedef struct s_time
+{
+	int			anim_speed;
+}			t_time;
 
 typedef struct s_map
 {
@@ -58,14 +63,17 @@ typedef struct s_map
 	int		exit_y;
 }			t_map;
 
-typedef struct s_data {
+typedef struct s_data
+{
 	void		*mlx_ptr;
 	void		*win_ptr;
 	void		*win_ptr2;
 	int			move;
 	int			stop;
+	int			allow_sprite;
 	t_sprite	sprites;
 	t_map		map;
+	t_time		time;
 }			t_data;
 
 #endif

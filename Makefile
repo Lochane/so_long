@@ -6,7 +6,7 @@
 #    By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 12:43:49 by lsouquie          #+#    #+#              #
-#    Updated: 2023/04/13 12:43:46 by lsouquie         ###   ########.fr        #
+#    Updated: 2023/04/14 16:50:26 by lsouquie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,7 @@ fclean: clean
 		@rm -f $(NAME)
 		@make fclean -C ./libft
 		@make clean -C ./Minilibx
-
-
+		
 re: fclean all
 
 .PHONY: all lib clean fclean re

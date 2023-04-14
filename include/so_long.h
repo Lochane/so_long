@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/13 13:55:35 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:29:20 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # include <string.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <sys/time.h>
+# include "struct.h"
 # include "./Minilibx/mlx.h"
 # include "./libft/libft.h"
-# include "struct.h"
 
 void	so_long(t_data *data);
 
@@ -54,10 +55,9 @@ char	overflow(t_data *data, char **tab, int i, int j);
 /* Rendering */
 
 int		rendering(t_data *data);
-void	animation(int t, int y, int x, t_data *data);
-void	anim_tree(int i, int y, int x, t_data *data);
-void	render_object(t_data *data);
-
+void	animation(int y, int x, t_data *data);
+void	anim_tree(int y, int x, t_data *data);
+void	render_basegame(t_data *data);
 
 
 /* Gameplay */
@@ -66,6 +66,8 @@ void	go_up(t_data *data);
 void	go_down(t_data *data);
 void	go_right(t_data *data);
 void	go_left(t_data *data);
+void	change_sprite(t_data *data);
+
 
 /* Events */
 

@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:21:38 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/02/20 12:21:50 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:22:34 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,18 @@ void	check_fin(t_data *data)
 int	quit_game(t_data *data)
 {
 	mlx_destroy_image(data->mlx_ptr, data->sprites.end_screen.img);
-	mlx_destroy_image(data->mlx_ptr, data->sprites.character_up.img);
-	mlx_destroy_image(data->mlx_ptr, data->sprites.character_down.img);
-	mlx_destroy_image(data->mlx_ptr, data->sprites.character_right.img);
-	mlx_destroy_image(data->mlx_ptr, data->sprites.character_left.img);
-	mlx_destroy_image(data->mlx_ptr, data->sprites.wall.img);
+	mlx_destroy_image(data->mlx_ptr, data->sprites.character1.img);
+	mlx_destroy_image(data->mlx_ptr, data->sprites.character2.img);
+	// mlx_destroy_image(data->mlx_ptr, data->sprites.character_right.img);
+	// mlx_destroy_image(data->mlx_ptr, data->sprites.character_left.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.floor.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.collectable.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.exit.img);
+	mlx_destroy_image(data->mlx_ptr, data->sprites.tree1.img);
+	mlx_destroy_image(data->mlx_ptr, data->sprites.tree2.img);
+	mlx_destroy_image(data->mlx_ptr, data->sprites.tree3.img);
+	mlx_destroy_image(data->mlx_ptr, data->sprites.tree4.img);
+
 	if (data->win_ptr)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	if (data->win_ptr2)

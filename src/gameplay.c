@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:13:35 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/02/20 12:28:11 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:29:41 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ void	go_up(t_data *data)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->sprites.floor.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y--) * 32));
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->sprites.character_up.img, (data->map.spawn_x * 32),
-			((data->map.spawn_y) * 32));
 		data->move += 1;
+		change_sprite(data);
 		ft_printf("Moves = %d\n", data->move);
 	}
 }
@@ -51,9 +49,10 @@ void	go_left(t_data *data)
 			data->sprites.floor.img, ((data->map.spawn_x--) * 32),
 			((data->map.spawn_y) * 32));
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->sprites.character_left.img, (data->map.spawn_x * 32),
+			data->sprites.character2.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y) * 32));
 		data->move += 1;
+		data->allow_sprite = 1;
 		ft_printf("Moves = %d\n", data->move);
 	}
 }
@@ -75,10 +74,8 @@ void	go_down(t_data *data)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->sprites.floor.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y++) * 32));
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->sprites.character_down.img, (data->map.spawn_x * 32),
-			((data->map.spawn_y) * 32));
 		data->move += 1;
+		change_sprite(data);
 		ft_printf("Moves = %d\n", data->move);
 	}
 }
@@ -99,9 +96,22 @@ void	go_right(t_data *data)
 			data->sprites.floor.img, ((data->map.spawn_x++) * 32),
 			((data->map.spawn_y) * 32));
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->sprites.character_right.img, (data->map.spawn_x * 32),
+			data->sprites.character1.img, (data->map.spawn_x * 32),
 			((data->map.spawn_y) * 32));
 		data->move += 1;
+		data->allow_sprite = 0;
 		ft_printf("Moves = %d\n", data->move);
 	}
+}
+
+void	change_sprite(t_data *data)
+{
+	if (data->allow_sprite == 0)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+			data->sprites.character1.img, (data->map.spawn_x * 32),
+			((data->map.spawn_y) * 32));
+	else
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+			data->sprites.character2.img, (data->map.spawn_x * 32),
+			((data->map.spawn_y) * 32));
 }

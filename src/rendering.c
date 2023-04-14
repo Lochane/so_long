@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:19:20 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/13 14:22:43 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:08:59 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,50 @@
 
 int	rendering(t_data *data)
 {
-	long	i;
-	int	x;
-	int	y;
-	int	curr_sprite;
-	
+	int				x;
+	int				y;
 
-	i = 0;
 	x = 0;
-	curr_sprite = 0;
 	while (x < data->map.map_widht)
 	{
 		y = 0;
 		while (y < data->map.map_height)
 		{
-			animation(curr_sprite, y, x, data);
-			// while (i < 1000000)
-			// 	i++;
-			curr_sprite = (curr_sprite + 1) % 4;
+			animation(y, x, data);
 			y++;
 		}
 	x++;
 	}
-	return (1);
+	return (10);
 }
 
-void	animation(int i, int y, int x, t_data *data)
+void	animation( int y, int x, t_data *data)
 {
-
-	(void)i;
 	if (data->map.map_file[y][x] == '1')
-	{
-		// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-		// 		data->sprites.tree1.img, (x * 32), (y * 32));
-		anim_tree(i, y, x, data);
-	}
+		anim_tree(y, x, data);
 }
 
-void	anim_tree(int i, int y, int x, t_data *data)
+void	anim_tree(int y, int x, t_data *data)
 {
-	// if (i == 0)
-	// 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-	// 		data->sprites.tree1.img, (x * 32), (y * 32));
-	if (i == 1)
+	data->time.anim_speed += 1;
+	if (data->time.anim_speed >= 401000)
+		data->time.anim_speed = 0;
+	if (data->time.anim_speed >= 0 && data->time.anim_speed <= 100000)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+			data->sprites.tree1.img, (x * 32), (y * 32));
+	else if (data->time.anim_speed >= 101000 && data->time.anim_speed <= 200000)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->sprites.tree2.img, (x * 32), (y * 32));
-	else if (i == 2)
+	else if (data->time.anim_speed >= 201000 && data->time.anim_speed <= 300000)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->sprites.tree3.img, (x * 32), (y * 32));
-	else if (i == 3)
+	else if (data->time.anim_speed >= 301000)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->sprites.tree4.img, (x * 32), (y * 32));
+
 }
 
-void	render_object(t_data *data)
+void	render_basegame(t_data *data)
 {
 	int	x;
 	int	y;
@@ -78,9 +68,9 @@ void	render_object(t_data *data)
 		y = 0;
 		while (y < data->map.map_height)
 		{
-			// if (data->map.map_file[y][x] == '1')
-			// 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			// 		data->sprites.tree1.img, (x * 32), (y * 32));
+			if (data->map.map_file[y][x] == '1')
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+					data->sprites.tree1.img, (x * 32), (y * 32));
 			if (data->map.map_file[y][x] == '0')
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 					data->sprites.floor.img, (x * 32), (y * 32));
@@ -95,4 +85,3 @@ void	render_object(t_data *data)
 		x++;
 	}
 }
-

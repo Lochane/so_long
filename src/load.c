@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:44:41 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/13 13:11:54 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:21:55 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,14 @@ void	load_img(t_data *data)
 
 void	load_img2(t_data *data)
 {
-	data->sprites.character_left.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/characterleft.xpm",
-			&data->sprites.character_left.width,
-			&data->sprites.character_left.height);
-		data->sprites.character_up.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/characterup.xpm",
-			&data->sprites.character_up.width,
-			&data->sprites.character_up.height);
-		data->sprites.character_down.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/characterdown.xpm",
-			&data->sprites.character_down.width,
-			&data->sprites.character_down.height);
-			data->sprites.character_right.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/characterright.xpm",
-			&data->sprites.character_right.width,
-			&data->sprites.character_right.height);
+		data->sprites.character1.img = mlx_xpm_file_to_image
+		(data->mlx_ptr, "./Sprites/character1.xpm",
+			&data->sprites.character1.width,
+			&data->sprites.character1.height);
+		data->sprites.character2.img = mlx_xpm_file_to_image
+		(data->mlx_ptr, "./Sprites/character2.xpm",
+			&data->sprites.character2.width,
+			&data->sprites.character2.height);
 }
 
 void	load_img3(t_data *data)
