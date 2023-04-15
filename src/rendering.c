@@ -79,7 +79,7 @@ void	render_basegame(t_data *data)
 					data->sprites.collectable.img, (x * 32), (y * 32));
 			if (data->map.map_file[y][x] == 'P')
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-					data->sprites.character_up.img, (x * 32), (y * 32));
+					data->sprites.character1.img, (x * 32), (y * 32));
 			y++;
 		}
 		x++;
