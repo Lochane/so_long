@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:44:41 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/14 17:21:55 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:26:41 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ void	load_img2(t_data *data)
 		(data->mlx_ptr, "./Sprites/character2.xpm",
 			&data->sprites.character2.width,
 			&data->sprites.character2.height);
+		data->sprites.enemy1.img = mlx_xpm_file_to_image
+		(data->mlx_ptr, "./Sprites/characterup.xpm",
+			&data->sprites.enemy1.width,
+			&data->sprites.enemy1.height);
+			
 }
 
 void	load_img3(t_data *data)

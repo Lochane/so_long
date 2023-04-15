@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/14 17:29:20 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:27:55 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,10 @@ void	load_img(t_data *data);
 void	load_img2(t_data *data);
 void	load_img3(t_data *data);
 
+/* Enemy */
+
+int	enemy(t_data *data);
+void	e1_up(t_data *data, int x, int y);
+void	e1_down(t_data *data, int x, int y);
 
 #endif

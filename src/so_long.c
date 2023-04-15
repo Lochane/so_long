@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:46:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/14 17:46:07 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:35:06 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ void	so_long(t_data *data)
 	mlx_key_hook(data->win_ptr, &keybinding, data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
 	mlx_loop_hook(data->mlx_ptr, &rendering, data);
+	// mlx_loop_hook(data->mlx_ptr, &enemy, data);
 	mlx_loop(data->mlx_ptr);
 }
