@@ -6,7 +6,7 @@
 /*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 00:23:40 by lochane           #+#    #+#             */
-/*   Updated: 2023/04/16 01:30:49 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/16 11:52:35 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ int	enemy(t_data *data)
 	int				y;
 
 	x = 0;
-	data->e1_bool = 0;
+	data->map.e1_bool = 0;
 	while (x < data->map.map_widht)
 	{
 		y = 0;
 		while (y < data->map.map_height)
 		{
 
-			if (data->map.map_file[y][x] == '*' && data->e1_bool == 0)
+			if (data->map.map_file[y][x] == '*' && data->map.e1_bool == 0)
 				e1_up(data, y, x);
-			if (data->map.map_file[y][x] == '*' && data->e1_bool == 1)
+			if (data->map.map_file[y][x] == '*' && data->map.e1_bool == 1)
 				e1_down(data, y, x);			
 			y++;
 		}
@@ -49,7 +49,7 @@ void	e1_up(t_data *data, int x, int y)
 			((y - 1) * 32));
 	}
 	else
-		data->e1_bool = 1;
+		data->map.e1_bool = 1;
 }
 
 void	e1_down(t_data *data, int x, int y)
@@ -65,5 +65,5 @@ void	e1_down(t_data *data, int x, int y)
 			((y + 1) * 32));
 	}
 	else
-		data->e1_bool = 0;
+		data->map.e1_bool = 0;
 }

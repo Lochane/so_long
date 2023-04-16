@@ -6,7 +6,7 @@
 /*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 23:36:35 by lochane           #+#    #+#             */
-/*   Updated: 2023/04/16 01:20:30 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/16 01:51:01 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_map
 	int		spawn_x;
 	int		spawn_y;	
 	int		exit_x;
+	int			e1_bool;
 	int		exit_y;
 }			t_map;
 
@@ -73,7 +74,6 @@ typedef struct s_data
 	int			move;
 	int			stop;
 	int			allow_sprite;
-	int			e1_bool;
 	t_sprite	sprites;
 	t_map		map;
 	t_time		time;
