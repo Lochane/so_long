@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:10:42 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/16 11:51:38 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/17 14:44:58 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ void	initialise_struct(t_data *data)
 	data->map.map_widht = 0;
 	data->map.spawn_x = 0;
 	data->map.spawn_y = 0;
-	//data->map.e1_bool = 0;
 	data->win_ptr2 = 0;
 	data->move = 0;
 	data->stop = 1;
+	data->allow = 0;
 	data->allow_sprite = 0;
 	// data->sprites.tree1
 }

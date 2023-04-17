@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 23:36:35 by lochane           #+#    #+#             */
-/*   Updated: 2023/04/16 01:51:01 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/17 15:48:42 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ typedef struct s_map
 	int		spawn_x;
 	int		spawn_y;	
 	int		exit_x;
-	int			e1_bool;
 	int		exit_y;
 }			t_map;
 
@@ -73,6 +72,7 @@ typedef struct s_data
 	void		*win_ptr2;
 	int			move;
 	int			stop;
+	int			allow;
 	int			allow_sprite;
 	t_sprite	sprites;
 	t_map		map;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:19:20 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/16 00:27:05 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/17 14:04:17 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,9 @@ void	render_basegame(t_data *data)
 			if (data->map.map_file[y][x] == 'P')
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 					data->sprites.character1.img, (x * 32), (y * 32));
+			if (data->map.map_file[y][x] == '*')
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+					data->sprites.enemy1.img, (x * 32), (y * 32));
 			y++;
 		}
 		x++;
