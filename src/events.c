@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:21:38 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/17 19:01:47 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:49:15 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,6 @@ int	quit_game(t_data *data)
 void	win_screen(t_data *data)
 {
 	data->stop = 0;
-	data->win_ptr2 = mlx_new_window(data->mlx_ptr, 1900, 729, "GG");
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr2,
-		data->sprites.end_screen.img, 0, 0);
-	mlx_hook(data->win_ptr2, 17, 1L << 17, &quit_game, data);
-	mlx_key_hook(data->win_ptr2, &keybinding, data);
-	mlx_hook(data->win_ptr2, KeyPress, KeyPressMask, &handle_keypress, data);
-}
-
-void	lose_screen(t_data *data)
-{
-	data->stop = 1;
 	data->win_ptr2 = mlx_new_window(data->mlx_ptr, 1900, 729, "GG");
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr2,
 		data->sprites.end_screen.img, 0, 0);

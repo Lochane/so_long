@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 00:23:40 by lochane           #+#    #+#             */
-/*   Updated: 2023/04/17 19:23:57 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:01:04 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	enemy(t_data *data)
 {
+	if (data->stop == 0)
+		return (0);
 	data->time.anim_speed++;
 	if (data->time.anim_speed % 10000 == 0)
 	{
@@ -104,8 +106,6 @@ void	sprites(t_data *data, int x, int y, int allow)
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 				data->sprites.enemy1.img, (x * 32),
 				(k * 32));
-		if (data->map.map_file[k][x] == '1')
-			printf("");
 	}
 }
 
