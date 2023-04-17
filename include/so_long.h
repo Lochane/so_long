@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/17 15:14:41 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/17 19:24:05 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int		handle_keypress(int keysym, t_data *data);
 void	check_fin(t_data *data);
 int		quit_game(t_data *data);
 void	win_screen(t_data *data);
+void	lose_screen(t_data *data);
+
 
 /* Load */
 void	load(t_data *data);
@@ -89,6 +91,10 @@ int		enemy(t_data *data);
 void	enemy_up(t_data *data);
 void	enemy_down(t_data *data);
 void	sprites(t_data *data, int x, int y, int allow);
+void	update_map(t_data *data, int x, int y, int allow);
+
+void	lose_screen(t_data *data)
+
 
 
 #endif

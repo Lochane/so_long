@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 23:36:35 by lochane           #+#    #+#             */
-/*   Updated: 2023/04/17 15:48:42 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/17 19:18:29 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_sprite
 	t_img	tree3;
 	t_img	tree4;
 	t_img	enemy1;
+	t_img	enemy1_down;
 	t_img	enemy2;
 }			t_sprite;
 
