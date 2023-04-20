@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:46:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/17 15:48:52 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/20 12:47:18 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ void	so_long(t_data *data)
 {
 	
 	data->mlx_ptr = mlx_init();
-	data->time.anim_speed = 0;
 	if (!data->mlx_ptr)
 	{
 		free_tab(data->map.map_file, data->map.map_height, data, 1);
 		exit(EXIT_FAILURE);
 	}
 	data->win_ptr = mlx_new_window(data->mlx_ptr, (data->map.map_widht * 32),
-			(data->map.map_height * 32), "So_long");
+			((data->map.map_height * 32) + 10), "So_long");
 	if (!data->win_ptr)
 	{
 		free_tab(data->map.map_file, data->map.map_height, data, 1);
@@ -52,7 +51,9 @@ void	so_long(t_data *data)
 	mlx_hook(data->win_ptr, 33, 1L << 17, &quit_game, data);
 	mlx_key_hook(data->win_ptr, &keybinding, data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
-	mlx_loop_hook(data->mlx_ptr, &rendering, data);
-	mlx_loop_hook(data->mlx_ptr, &enemy, data);
+	mlx_loop_hook(data->mlx_ptr, &render_character, data);
+	// mlx_loop_hook(data->mlx_ptr, &enemy, data);
+	mlx_loop_hook(data->mlx_ptr, &loop, data);
 	mlx_loop(data->mlx_ptr);
 }
+

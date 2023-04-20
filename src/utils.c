@@ -6,7 +6,7 @@
 /*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:10:42 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/18 00:11:34 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/20 12:47:27 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ void	initialise_struct(t_data *data)
 	data->allow = 0;
 	data->allow_sprite = 0;
 	data->map.enemy_x = 0;
+	data->time.anim_speed2 = 0;
+	data->time.anim_speed = 0;
 	data->map.enemy_y = 0;
 	// data->sprites.tree1
 }

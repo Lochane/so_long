@@ -6,7 +6,7 @@
 /*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:13:35 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/18 00:19:11 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/20 12:25:36 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	go_up(t_data *data)
 	if (data->map.map_file [data->map.spawn_y - 1][data->map.spawn_x] == 'E'
 		&& data->map.count_collectable == 0)
 		win_screen(data);
-	if (data->map.spawn_y == data->map.enemy_y && data->map.spawn_x + 1 == data->map.enemy_x)
+	if (data->map.spawn_y == (data->map.enemy_y - 1) && data->map.spawn_x == data->map.enemy_x)
 		 lose_screen(data);
 	if (data->map.map_file[data->map.spawn_y - 1][data->map.spawn_x] != '1')
 	{
@@ -31,8 +31,9 @@ void	go_up(t_data *data)
 			((data->map.spawn_y--) * 32));
 		data->move += 1;
 		ft_printf("Moves = %d\n", data->move);
-		change_sprite(data);
+		put_string(data);
 	}
+	change_sprite(data);
 }
 
 void	go_left(t_data *data)
@@ -40,7 +41,7 @@ void	go_left(t_data *data)
 	if (data->map.map_file [data->map.spawn_y][data->map.spawn_x - 1] == 'E' &&
 		data->map.count_collectable == 0)
 		win_screen(data);
-	if (data->map.spawn_y == data->map.enemy_y && data->map.spawn_x + 1 == data->map.enemy_x)
+	if (data->map.spawn_y == data->map.enemy_y  && (data->map.spawn_x - 1) == data->map.enemy_x)
 		 lose_screen(data);
 	if (data->map.map_file[data->map.spawn_y][data->map.spawn_x - 1] != '1')
 	{
@@ -58,6 +59,7 @@ void	go_left(t_data *data)
 			((data->map.spawn_y) * 32));
 		data->move += 1;
 		data->allow_sprite = 1;
+		put_string(data);
 		ft_printf("Moves = %d\n", data->move);
 	}
 }
@@ -69,7 +71,7 @@ void	go_down(t_data *data)
 	{
 		win_screen(data);
 	}
-	if (data->map.spawn_y == data->map.enemy_y && data->map.spawn_x + 1 == data->map.enemy_x)
+	if (data->map.spawn_y == (data->map.enemy_y + 1) && data->map.spawn_x == data->map.enemy_x)
 		 lose_screen(data);
 	if (data->map.map_file[data->map.spawn_y + 1][data->map.spawn_x] != '1')
 	{
@@ -83,6 +85,7 @@ void	go_down(t_data *data)
 			((data->map.spawn_y++) * 32));
 		data->move += 1;
 		ft_printf("Moves = %d\n", data->move);
+		put_string(data);
 	}
 		change_sprite(data);
 }
@@ -92,7 +95,7 @@ void	go_right(t_data *data)
 	if (data->map.map_file [data->map.spawn_y][data->map.spawn_x + 1] == 'E'
 		&& data->map.count_collectable == 0)
 		win_screen(data);
-	if (data->map.spawn_y == data->map.enemy_y && data->map.spawn_x + 1 == data->map.enemy_x)
+	if (data->map.spawn_y == data->map.enemy_y && (data->map.spawn_x + 1) == data->map.enemy_x)
 		 lose_screen(data);
 	if (data->map.map_file[data->map.spawn_y][data->map.spawn_x + 1] != '1')
 	{
@@ -109,6 +112,7 @@ void	go_right(t_data *data)
 			((data->map.spawn_y) * 32));
 		data->move += 1;
 		data->allow_sprite = 0;
+		put_string(data);
 		ft_printf("Moves = %d\n", data->move);
 	}
 }

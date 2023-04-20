@@ -6,7 +6,7 @@
 /*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 23:36:35 by lochane           #+#    #+#             */
-/*   Updated: 2023/04/18 00:10:44 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/20 12:46:20 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_sprite
 	t_img	floor;
 	t_img	wall;
 	t_img	collectable;
+	t_img	collectable2;
 	t_img	character1;
 	t_img	character2;
 	t_img	character_right;
@@ -48,6 +49,7 @@ typedef struct s_sprite
 typedef struct s_time
 {
 	int			anim_speed;
+	int			anim_speed2;
 }			t_time;
 
 typedef struct s_map

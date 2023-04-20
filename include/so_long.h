@@ -6,7 +6,7 @@
 /*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:09:30 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/17 23:50:35 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/20 12:49:26 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,15 @@ char	overflow(t_data *data, char **tab, int i, int j);
 
 /* Rendering */
 
-int		rendering(t_data *data);
+int		render_anim(t_data *data);
 void	animation(int y, int x, t_data *data);
 void	anim_tree(int y, int x, t_data *data);
 void	render_basegame(t_data *data);
+
+void put_string(t_data *data);
+int	loop(t_data *data);
+int	render_character(t_data *data);
+void	anim_collectable(int y, int x, t_data *data);
 
 
 /* Gameplay */
@@ -68,7 +73,7 @@ void	go_right(t_data *data);
 void	go_left(t_data *data);
 void	change_sprite(t_data *data);
 
-
+     
 /* Events */
 
 int		keybinding(int keysim, t_data *data);

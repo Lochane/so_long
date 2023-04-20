@@ -6,7 +6,7 @@
 /*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 00:23:40 by lochane           #+#    #+#             */
-/*   Updated: 2023/04/18 00:01:04 by lochane          ###   ########.fr       */
+/*   Updated: 2023/04/20 12:23:04 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	enemy_up(t_data *data)
 		{
 			if (data->map.map_file[y][x] == '*')
 			{
-				if (data->map.map_file[y - 1][x] != '1')
+				if (data->map.map_file[y - 1][x] != '1' && data->map.map_file[y - 1][x] != 'C')
 				{
 					sprites(data, x, y, 0);
 					break ;
@@ -71,7 +71,8 @@ void	enemy_down(t_data *data)
 		{
 			if (data->map.map_file[y][x] == '*')
 			{
-				if (data->map.map_file[y + 1][x] != '1')
+				if (data->map.map_file[y + 1][x] != '1' && 
+						data->map.map_file[y + 1][x] != 'C')
 				{
 					sprites(data, x, y, 1);
 					break ;
@@ -91,9 +92,9 @@ void	sprites(t_data *data, int x, int y, int allow)
 	int k;
 
 	k = -1;
-	if (x == data->map.spawn_x && y - 1 == data->map.spawn_y)
+	if (x == data->map.spawn_x && y == data->map.spawn_y)
 			lose_screen(data);
-	if (x == data->map.spawn_x && y + 1 == data->map.spawn_y)
+	if (x == data->map.spawn_x && y == data->map.spawn_y)
 			lose_screen(data);
 	update_map(data, x, y , allow);
 	while (++k != 6)

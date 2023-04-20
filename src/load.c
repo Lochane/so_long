@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:44:41 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/17 19:30:13 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/04/20 12:46:51 by lochane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,13 @@ void	load_img(t_data *data)
 		(data->mlx_ptr, "./Sprites/grass.xpm", &data->sprites.floor.width,
 			&data->sprites.floor.height);
 	data->sprites.collectable.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/collectable_1.xpm",
+		(data->mlx_ptr, "./Sprites/collectable.xpm",
 			&data->sprites.collectable.width,
-			&data->sprites.collectable.height);
+			&data->sprites.collectable.height);	
+	data->sprites.collectable2.img = mlx_xpm_file_to_image
+		(data->mlx_ptr, "./Sprites/collectable_2.xpm",
+			&data->sprites.collectable2.width,
+			&data->sprites.collectable2.height);
 	data->sprites.exit.img = mlx_xpm_file_to_image
 		(data->mlx_ptr, "./Sprites/exit.xpm", &data->sprites.exit.width,
 			&data->sprites.exit.height);
@@ -48,7 +52,7 @@ void	load_img2(t_data *data)
 			&data->sprites.character2.width,
 			&data->sprites.character2.height);
 		data->sprites.enemy1.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/characterup.xpm",
+		(data->mlx_ptr, "./Sprites/enemy.xpm",
 			&data->sprites.enemy1.width,
 			&data->sprites.enemy1.height);
 			
