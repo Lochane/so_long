@@ -51,8 +51,6 @@ int	quit_game(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->sprites.end_screen.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.character1.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.character2.img);
-	// mlx_destroy_image(data->mlx_ptr, data->sprites.character_right.img);
-	// mlx_destroy_image(data->mlx_ptr, data->sprites.character_left.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.floor.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.collectable.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.exit.img);

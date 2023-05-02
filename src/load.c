@@ -25,13 +25,9 @@ void	load_img(t_data *data)
 		(data->mlx_ptr, "./Sprites/grass.xpm", &data->sprites.floor.width,
 			&data->sprites.floor.height);
 	data->sprites.collectable.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/collectable.xpm",
+		(data->mlx_ptr, "./Sprites/collectable_1.xpm",
 			&data->sprites.collectable.width,
-			&data->sprites.collectable.height);	
-	data->sprites.collectable2.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/collectable_2.xpm",
-			&data->sprites.collectable2.width,
-			&data->sprites.collectable2.height);
+			&data->sprites.collectable.height);
 	data->sprites.exit.img = mlx_xpm_file_to_image
 		(data->mlx_ptr, "./Sprites/exit.xpm", &data->sprites.exit.width,
 			&data->sprites.exit.height);
@@ -51,11 +47,6 @@ void	load_img2(t_data *data)
 		(data->mlx_ptr, "./Sprites/character2.xpm",
 			&data->sprites.character2.width,
 			&data->sprites.character2.height);
-		data->sprites.enemy1.img = mlx_xpm_file_to_image
-		(data->mlx_ptr, "./Sprites/enemy.xpm",
-			&data->sprites.enemy1.width,
-			&data->sprites.enemy1.height);
-			
 }
 
 void	load_img3(t_data *data)
