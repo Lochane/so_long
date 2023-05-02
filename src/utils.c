@@ -54,7 +54,7 @@ int	count_line(char *mapfile, t_data *data)
 
 void	validate_chars(t_data *data, char c)
 {	
-	if (c != 'C' && c != 'E' && c != 'P' && c != '*' && c != '$')
+	if (c != 'C' && c != 'E' && c != 'P')
 		error_msg("Error:\nCharacter invalid\n", 1, data);
 	if (c == 'C')
 		data->map.count_collectable += 1;
@@ -74,7 +74,7 @@ void	error_msg(char *msg, int tofree, t_data *data)
 	exit (0);
 }
 
-void	initialise_struct(t_data *data)
+void	initialise_struct(t_data *data, char *mapfile)
 {
 	data->map.collectable_founded = 0;
 	data->map.count_collectable = 0;
@@ -83,7 +83,7 @@ void	initialise_struct(t_data *data)
 	data->map.exit_founded = 0;
 	data->map.exit_x = 0;
 	data->map.exit_y = 0;
-	data->map.map_height = 0;
+	data->map.map_height = count_line(mapfile, data);
 	data->map.map_widht = 0;
 	data->map.spawn_x = 0;
 	data->map.spawn_y = 0;
@@ -96,5 +96,4 @@ void	initialise_struct(t_data *data)
 	data->time.anim_speed2 = 0;
 	data->time.anim_speed = 0;
 	data->map.enemy_y = 0;
-	// data->sprites.tree1
 }

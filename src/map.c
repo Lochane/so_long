@@ -93,23 +93,23 @@ void	map_to_tab(char *mapfile, t_data *data)
 	char	*line;
 	char	**mapdata;
 
-	i = 0;
+	i = -1;
 	fd = open(mapfile, O_RDONLY);
-	data->map.map_height = count_line(mapfile, data);
 	mapdata = malloc(sizeof(char *) * (data->map.map_height + 1));
 	if (!mapdata)
-		return ;
+		exit(1);
 	line = get_next_line(fd);
 	if (!line)
-		return ;
+	{
+		free(mapdata);
+		exit(1);
+	}
 	while (line)
 	{
-		mapdata[i] = ft_strdup(line);
+		mapdata[++i] = ft_strdup(line);
 		free(line);
 		line = get_next_line(fd);
-		i++;
 	}
-	data->map.map_file = malloc(sizeof(char *) * (data->map.map_height + 1)); // TODO regler malloc
-	copy_tab(data->map.map_file, mapdata, data);
-	free_tab(mapdata, i, data, 0);
+	create_filemap(mapdata, i, data);
+	free_tab(mapdata, i + 1, data, 0);
 }

@@ -12,13 +12,6 @@
 
 #include "include/so_long.h"
 
-int	loop(t_data *data)
-{
-	render_anim(data);
-	enemy(data);
-	return(1);
-}
-
 int	render_anim(t_data *data)
 {
 	int				x;
@@ -32,13 +25,13 @@ int	render_anim(t_data *data)
 		{
 			if (data->map.map_file[y][x] == '1')
 				anim_tree(y, x, data);
+			put_string(data);
 			y++;
 		}
 	x++;
 	}
 	return (10);
 }
-
 
 void	anim_tree(int y, int x, t_data *data)
 {
@@ -57,21 +50,19 @@ void	anim_tree(int y, int x, t_data *data)
 	else if (data->time.anim_speed >= 301000)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->sprites.tree4.img, (x * 32), (y * 32));
-
 }
-
 
 void	render_basegame(t_data *data)
 {
 	int	x;
 	int	y;
 
-	x = 0;
+	x = -1;
 	render_character(data);
-	while (x < data->map.map_widht)
+	while (++x < data->map.map_widht)
 	{
-		y = 0;
-		while (y < data->map.map_height)
+		y = -1;
+		while (++y < data->map.map_height)
 		{
 			if (data->map.map_file[y][x] == '1')
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
@@ -85,9 +76,7 @@ void	render_basegame(t_data *data)
 			if (data->map.map_file[y][x] == 'E')
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 					data->sprites.floor.img, (x * 32), (y * 32));
-			y++;
 		}
-		x++;
 	}
 }
 
@@ -116,13 +105,12 @@ int	render_character(t_data *data)
 	return (1);
 }
 
-void put_string(t_data *data)
+void	put_string(t_data *data)
 {
-		char	*str;
+	char	*str;
 
 	str = ft_itoa(data->move);
-		printf("lol");
-		mlx_string_put(data->mlx_ptr, data->win_ptr, data->map.map_height / 5,
-			((data->map.map_widht / 1.5) + 10), -1, str);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, data->map.map_height / 5,
+		((data->map.map_widht / 1.5) + 10), -1, str);
 	free(str);
 }

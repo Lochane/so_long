@@ -18,20 +18,19 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		exit(0);
-	data = malloc(sizeof(t_data)); // TODO proteger malloc
-	initialise_struct(data);
+	data = malloc(sizeof(t_data));
+	if (!data)
+		exit (1);
+	initialise_struct(data, argv[1]);
 	validate_mapfile(argc, argv[1], data);
 	parsing_map(argv[1], data);
-	printf("LOL");
 	so_long(data);
 	free(data);
 	return (0);
 }
 
-
 void	so_long(t_data *data)
 {
-	
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 	{
@@ -52,8 +51,17 @@ void	so_long(t_data *data)
 	mlx_key_hook(data->win_ptr, &keybinding, data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &handle_keypress, data);
 	mlx_loop_hook(data->mlx_ptr, &render_character, data);
-	// mlx_loop_hook(data->mlx_ptr, &enemy, data);
-	mlx_loop_hook(data->mlx_ptr, &loop, data);
+	mlx_loop_hook(data->mlx_ptr, &render_anim, data);
 	mlx_loop(data->mlx_ptr);
 }
 
+void	create_filemap(char **mapdata, int i, t_data *data)
+{
+	data->map.map_file = malloc(sizeof(char *) * (data->map.map_height + 1));
+	if (!data->map.map_file)
+	{
+		free_tab(mapdata, i + 1, data, 1);
+		exit(1);
+	}
+	copy_tab(data->map.map_file, mapdata, data);
+}
