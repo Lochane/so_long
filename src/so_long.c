@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:46:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/20 12:47:18 by lochane          ###   ########.fr       */
+/*   Updated: 2023/05/04 16:10:57 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@ int	main(int argc, char **argv)
 		exit(0);
 	data = malloc(sizeof(t_data));
 	if (!data)
-		exit (1);
-	initialise_struct(data, argv[1]);
+		exit(0);
+	initialise_struct(data);
 	validate_mapfile(argc, argv[1], data);
 	parsing_map(argv[1], data);
 	so_long(data);
 	free(data);
 	return (0);
 }
+
 
 void	so_long(t_data *data)
 {
@@ -55,13 +56,3 @@ void	so_long(t_data *data)
 	mlx_loop(data->mlx_ptr);
 }
 
-void	create_filemap(char **mapdata, int i, t_data *data)
-{
-	data->map.map_file = malloc(sizeof(char *) * (data->map.map_height + 1));
-	if (!data->map.map_file)
-	{
-		free_tab(mapdata, i + 1, data, 1);
-		exit(1);
-	}
-	copy_tab(data->map.map_file, mapdata, data);
-}

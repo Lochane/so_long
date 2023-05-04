@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:05:59 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/03/30 17:10:45 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:36:08 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,25 +91,21 @@ void	map_to_tab(char *mapfile, t_data *data)
 	int		fd;
 	int		i;
 	char	*line;
-	char	**mapdata;
 
-	i = -1;
+	i = 0;
 	fd = open(mapfile, O_RDONLY);
-	mapdata = malloc(sizeof(char *) * (data->map.map_height + 1));
-	if (!mapdata)
-		exit(1);
+	data->map.map_height = count_line(mapfile, data);
+	data->map.map_file = malloc(sizeof(char *) * (data->map.map_height + 1));
+	if (!data->map.map_file)
+		return ;
 	line = get_next_line(fd);
 	if (!line)
-	{
-		free(mapdata);
-		exit(1);
-	}
+		return ;
 	while (line)
 	{
-		mapdata[++i] = ft_strdup(line);
+		data->map.map_file[i] = ft_strdup(line);
 		free(line);
 		line = get_next_line(fd);
+		i++;
 	}
-	create_filemap(mapdata, i, data);
-	free_tab(mapdata, i + 1, data, 0);
 }

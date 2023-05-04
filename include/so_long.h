@@ -37,7 +37,7 @@ void	validate_chars(t_data *data, char c);
 int		count_line(char *mapfile, t_data *data);
 void	error_msg(char *msg, int tofree, t_data *data);
 void	error_char(t_data *data);
-void	initialise_struct(t_data *data, char *mapfile);
+void	initialise_struct(t_data *data);
 
 /* Utils 2*/
 int		count(const char *a);
@@ -98,8 +98,6 @@ void	sprites(t_data *data, int x, int y, int allow);
 void	update_map(t_data *data, int x, int y, int allow);
 
 void	lose_screen(t_data *data);
-void create_filemap(char **mapfile, int i, t_data *data);
-
 
 
 

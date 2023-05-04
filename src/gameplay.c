@@ -79,7 +79,7 @@ void	go_down(t_data *data)
 		ft_printf("Moves = %d\n", data->move);
 		put_string(data);
 	}
-	change_sprite(data);
+		change_sprite(data);
 }
 
 void	go_right(t_data *data)

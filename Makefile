@@ -21,7 +21,7 @@ LIBPATH = ./libft/libft
 SRC =  $(SRCDIR)map.c $(SRCDIR)utils.c \
 		$(SRCDIR)utils2.c $(SRCDIR)algo_map.c $(SRCDIR)so_long.c \
 		$(SRCDIR)rendering.c $(SRCDIR)events.c $(SRCDIR)gameplay.c \
-		$(SRCDIR)load.c \
+		$(SRCDIR)load.c\
 
 
 OBJ = $(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRC))
@@ -58,6 +58,4 @@ fclean: clean
 		
 re: fclean all
 
-norme:
-		norminette $(SRC) $(INC)
 .PHONY: all lib clean fclean re
