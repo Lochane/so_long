@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gameplay.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:13:35 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/04/20 12:25:36 by lochane          ###   ########.fr       */
+/*   Updated: 2023/05/04 17:56:34 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	go_left(t_data *data)
 			data->map.count_collectable -= 1;
 			data->map.map_file[data->map.spawn_y][data->map.spawn_x - 1] = '0';
 		}
-		data->map.map_file[data->map.spawn_y][data->map.spawn_x] = 'P';
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->sprites.floor.img, ((data->map.spawn_x--) * 32),
 			((data->map.spawn_y) * 32));
@@ -79,7 +78,7 @@ void	go_down(t_data *data)
 		ft_printf("Moves = %d\n", data->move);
 		put_string(data);
 	}
-		change_sprite(data);
+	change_sprite(data);
 }
 
 void	go_right(t_data *data)

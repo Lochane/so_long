@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lochane <lochane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 23:36:35 by lochane           #+#    #+#             */
-/*   Updated: 2023/04/20 12:46:20 by lochane          ###   ########.fr       */
+/*   Updated: 2023/05/04 18:54:13 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,19 @@ typedef struct s_sprite
 	t_img	floor;
 	t_img	wall;
 	t_img	collectable;
-	t_img	collectable2;
 	t_img	character1;
 	t_img	character2;
-	t_img	character_right;
-	t_img	character_left;
 	t_img	end_screen;
 	t_img	exit;
 	t_img	tree1;
 	t_img	tree2;
 	t_img	tree3;
 	t_img	tree4;
-	t_img	enemy1;
-	//t_img	enemy1_down;
-	t_img	enemy2;
 }			t_sprite;
 
 typedef struct s_time
 {
 	int			anim_speed;
-	int			anim_speed2;
 }			t_time;
 
 typedef struct s_map
@@ -64,8 +57,6 @@ typedef struct s_map
 	int		collectable_founded;
 	int		spawn_x;
 	int		spawn_y;		
-	int		enemy_x;
-	int		enemy_y;	
 	int		exit_x;
 	int		exit_y;
 }			t_map;

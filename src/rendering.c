@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:19:20 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/05/04 16:02:46 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:43:48 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	render_anim(t_data *data)
 		{
 			if (data->map.map_file[y][x] == '1')
 			{
-				anim_tree(y, x, data);
 				put_string(data);
+				anim_tree(y, x, data);
 			}
 			y++;
 		}
@@ -52,7 +52,6 @@ void	anim_tree(int y, int x, t_data *data)
 	else if (data->time.anim_speed >= 301000)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->sprites.tree4.img, (x * 32), (y * 32));
-
 }
 
 void	render_basegame(t_data *data)
@@ -111,6 +110,6 @@ void	put_string(t_data *data)
 
 	str = ft_itoa(data->move);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, data->map.map_height / 5,
-		((data->map.map_widht / 1.5) - 10), -1, str);
+		((data->map.map_widht / 1)), -1, str);
 	free(str);
 }

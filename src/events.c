@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:21:38 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/05/04 16:07:04 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:55:04 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	quit_game(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->sprites.tree2.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.tree3.img);
 	mlx_destroy_image(data->mlx_ptr, data->sprites.tree4.img);
-
 	if (data->win_ptr)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	if (data->win_ptr2)

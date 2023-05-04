@@ -6,7 +6,7 @@
 /*   By: lsouquie <lsouquie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:46:51 by lsouquie          #+#    #+#             */
-/*   Updated: 2023/05/04 16:10:57 by lsouquie         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:56:34 by lsouquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char **argv)
 	free(data);
 	return (0);
 }
-
 
 void	so_long(t_data *data)
 {
@@ -55,4 +54,3 @@ void	so_long(t_data *data)
 	mlx_loop_hook(data->mlx_ptr, &render_anim, data);
 	mlx_loop(data->mlx_ptr);
 }
-
